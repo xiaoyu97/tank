@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--<configuration>-->
+
+<!--    &lt;!&ndash; 引入外部配置文件 &ndash;&gt;-->
+<!--    <properties resource="..jdbc.properties"></properties>-->
+<!--    -->
+<!--    &lt;!&ndash; 为JAVA Bean起类别名 &ndash;&gt;-->
+<!--    <typeAliases >-->
+<!--        &lt;!&ndash; 别名方式1，一个一个的配置 type中放置的是类的全路径，alias中放置的是类别名-->
+<!--12         <typeAliase type="com.cy.mybatis.beans.UserBean" alias="UserBean"/> &ndash;&gt;-->
+<!--        &lt;!&ndash; 别名方式2，自动扫描，将JAVA类的类名作为类的类别名 &ndash;&gt;-->
+<!--        <package name="tank.domain"/>-->
+<!--    </typeAliases>-->
+
+<!--    &lt;!&ndash; 配置mybatis运行环境 &ndash;&gt;-->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            &lt;!&ndash; type="JDBC" 代表使用JDBC的提交和回滚来管理事务 &ndash;&gt;-->
+<!--            <transactionManager type="JDBC" />-->
+
+<!--            &lt;!&ndash; mybatis提供了3种数据源类型，分别是：POOLED,UNPOOLED,JNDI &ndash;&gt;-->
+<!--            &lt;!&ndash; POOLED 表示支持JDBC数据源连接池 &ndash;&gt;-->
+<!--            &lt;!&ndash; UNPOOLED 表示不支持数据源连接池 &ndash;&gt;-->
+<!--            &lt;!&ndash; JNDI 表示支持外部数据源连接池 &ndash;&gt;-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${jdbc.driver}" />-->
+<!--                <property name="url" value="${jdbc.url}" />-->
+<!--                <property name="username" value="${jdbc.username}" />-->
+<!--                <property name="password" value="${jdbc.password}" />-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+<!--<mappers>-->
+<!--    <mapper resource="tank/mapper/UserMapper.xml"/>-->
+<!--</mappers>-->
+<!--</configuration>-->
+
+
+<!--mybatis的主配置文件-->
+<configuration>
+    <!--    配置环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <!--            配置链接数据库的基本信息-->
+            <dataSource type="POOLED">
+                <!--                配置链接数据库的4个基本信息-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/tank"/>
+                <property name="username" value="root"/>
+                <property name="password" value="Root_123"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件-->
+    <mappers>
+        <!--        <mapper resource="com/tank/mapper/IExperienceDao.xml"/>-->
+        <!--        <mapper resource="com/tank/mapper/ILoginDao.xml"/>-->
+        <package name="tank.mapper"/>
+    </mappers>
+</configuration>
