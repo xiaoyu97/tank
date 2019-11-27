@@ -18,7 +18,7 @@
 <%--  弹框主体  --%>
     <div class="main">
 <%--   表单提交  --%>
-        <form >
+        <form method="post" >
             <h3>项目经验</h3>
 
             <label class="itemTitle">项目名称</label><input id="pwd" class="project" type="text" name="name"

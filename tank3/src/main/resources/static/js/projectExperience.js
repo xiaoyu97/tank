@@ -60,9 +60,10 @@ function save() {
         },
         dataType: "json",
         success: function(data){
-            var msg = data.msg;
-            alert(msg);
-        }
+            alert(data);
+        },
+        error: function(){
+            alert("fail");}
     })
 }
 
