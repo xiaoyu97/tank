@@ -14,7 +14,7 @@
 <%--弹框--%>
 <div id='inputbox' class="box">
 <%-- X 图片   --%>
-    <img class='x' href='' ; onclick="msgbox(0); return false;" src="./images/aaa.png" width="50" height="60" alt=""/>
+    <img class='x' href=''; onclick="msgbox(0); return false;" src="./images/aaa.png" width="50" height="60" alt=""/>
 <%--  弹框主体  --%>
     <div class="main">
 <%--   表单提交  --%>
